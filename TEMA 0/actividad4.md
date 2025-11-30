@@ -5,6 +5,7 @@ Sintaxis: curl [OPCIONES] URL
 Permite hacer peticiones HTTP (GET, POST, PUT, DELETE…), subir archivos, autenticarse con usuario/contraseña, manejar cabeceras, seguir redireccionamientos, etc. También soporta muchas opciones para modificar el comportamiento.
 
 **Algunos ejemplos**
+
 curl https://www.ejemplo.com/: Realiza una petición GET al sitio y muestra el contenido HTML.  
 curl -I https://www.ejemplo.com/: Obtiene solo las cabeceras HTTP.  
 curl -o archivo.html https://www.ejemplo.com/pagina.html: Descarga la página y la guarda localmente con el nombre archivo.html.  
