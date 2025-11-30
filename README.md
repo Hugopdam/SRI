@@ -2,7 +2,7 @@
 
 ## Tema 1
 
-Ejercicio |
+Ejercicios |
 ----------|
 [Ejercicio 1](TEMA_0/actividad1.md)
 [Ejercicio 2](TEMA_0/actividad2.md)
