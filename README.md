@@ -1,7 +1,7 @@
 # SRI
 **Curso 25/26 de SRI**
 
-## Tema 1
+## Tema 0
 
 Ejercicios |
 ----------|
@@ -9,3 +9,8 @@ Ejercicios |
 [Ejercicio 2](TEMA_0/actividad2.md)
 [Ejercicio 4](TEMA_0/actividad4.md)
 [Ejercicio 5](TEMA_0/actividad5.md)
+
+## Tema 1
+
+Ejercicios |
+----------|
