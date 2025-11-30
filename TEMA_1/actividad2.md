@@ -11,7 +11,7 @@ Reiniciamos apache y ya estaría:
 **Añadir el dominio “marisma.intranet” en el fichero hosts**
 <img width="742" height="107" alt="image" src="https://github.com/user-attachments/assets/2f544cd3-7f97-4966-ba40-76eb08a51d4f" />
 
-Ahora reiniciamos apache otra vez y ya estría:
+Ahora reiniciamos apache otra vez y ya estría:  
 <img width="593" height="237" alt="image" src="https://github.com/user-attachments/assets/f4d1427a-8773-456e-a698-6a0b9aba5ee0" />
 
 **Cambiar la directiva “ServerTokens” para mostrar el nombre del producto.**
@@ -47,7 +47,7 @@ Es posible redireccionar tan solo una página en lugar de toda la carpeta. Prué
 Si es posible. Tenemos que escribir esta codigo:  
 <img width="389" height="60" alt="image" src="https://github.com/user-attachments/assets/5007cf54-1133-4578-8591-6985b9cdc4ce" />
 
-Ahora si nos fueramos a prueba 1 nos llevaria concretamente al fichero especificado. Si tuvieramos otro fichero con ese nombre se nos mostraría.
+Ahora si nos fueramos a prueba 1 nos llevaria concretamente al fichero especificado. Si tuvieramos otro fichero con ese nombre se nos mostraría.  
 <img width="586" height="158" alt="image" src="https://github.com/user-attachments/assets/65b4fd6f-da77-42fb-9634-275d8a7e7ded" />
 
-
+**Usa la directiva userdir**
