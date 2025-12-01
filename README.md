@@ -16,3 +16,6 @@ Ejercicios |
 ----------|
 [Ejercicio1](TEMA_1/actividad1.md)
 [Ejercicio2](TEMA_1/actividad2.md)
+[Script 1](TEMA_1/Script1.sh)
+[Script 2](TEMA_1/Script2.sh)
+[Script 3](TEMA_1/Script3.sh)
