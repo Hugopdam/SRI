@@ -20,3 +20,4 @@ Ejercicios |
 [Script 2](TEMA_1/Script2.sh)
 [Script 3](TEMA_1/Script3.sh)
 [Ejercicio5](TEMA_1/actividad5.md)
+[Ejercicio6](TEMA_1/actividad6.md)
