@@ -51,3 +51,36 @@ Ahora si nos fueramos a prueba 1 nos llevaria concretamente al fichero especific
 <img width="586" height="158" alt="image" src="https://github.com/user-attachments/assets/65b4fd6f-da77-42fb-9634-275d8a7e7ded" />
 
 **Usa la directiva userdir**
+Lo primero que haremos es habilitar la directiva con este comando:
+<img width="515" height="84" alt="image" src="https://github.com/user-attachments/assets/a7e26398-e6b8-4545-ab7c-c2e126842a8e" />
+
+Creamos una carpeta en nuestra carpeta personal ly un archivo index.html:
+<img width="470" height="47" alt="image" src="https://github.com/user-attachments/assets/96ef4e5d-114c-42e9-a2b2-c0363d46e93b" />
+
+Tras haber comprobado que los ficheros y carpetas tienen los permisos adecuados, nos vamos a internet y vemos que funciona:
+<img width="302" height="91" alt="image" src="https://github.com/user-attachments/assets/f98fc04f-8676-421f-b97f-0e596a59f30d" />
+
+**Usa la directiva alias para redireccionar a una carpeta dentro del directorio de usuario.**
+
+Nos iremos al archivo alians.conf en mods-avaiable y añadiremos la siugiente linea:
+<img width="288" height="69" alt="image" src="https://github.com/user-attachments/assets/7baa519d-89fc-48af-940c-8389bff1807b" />
+
+Si creamos ahora dicha carpeta y le ponemos un index.html y podremos ver que funciona:
+<img width="253" height="52" alt="image" src="https://github.com/user-attachments/assets/534f702a-46d7-4fa9-b966-a9f69297fc78" />
+
+**¿Para qué sirve la directiva Options y dónde aparece? Comprueba si apache indexa los directorios. Si es así, ¿cómo lo desactivamos?**
+
+La directiva options sirve para configurar el comportamiento dentro de un directorio. Sí indexa el contenido. Lo desactivamos en apache2.conf y vemos que en var/www quitando la línea 'Indexes' ya no aparecen los indexes
+
+Tendríamos que quitar esto:
+<img width="205" height="78" alt="image" src="https://github.com/user-attachments/assets/68324ba9-f4dc-4b3a-9c96-7267f051f585" />
+
+
+
+
+
+
+
+
+
+
