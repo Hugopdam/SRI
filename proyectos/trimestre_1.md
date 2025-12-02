@@ -84,6 +84,61 @@ Y ahora vamos a modificar el archivo de configuración del VirtualHost, dentro d
 Y si ahora recargamos apache y probamos a entrar a departamentos otra vezs nos pedirá el login:  
 <img width="711" height="344" alt="image" src="https://github.com/user-attachments/assets/dca46439-5393-4f9f-b9d7-f38e0abc0c7f" />
 
+## 6.- Instalar y Configurar AWStats
+
+Instalamos awstats con el siguiente comando:  
+<img width="915" height="124" alt="image" src="https://github.com/user-attachments/assets/1d69d674-2809-4514-a592-72163b0da474" />
+
+Vamos a configurarla para centro.intranet, copiando la configuración base:  
+<img width="1081" height="58" alt="image" src="https://github.com/user-attachments/assets/a236af3a-7520-4592-b4ea-a3a48bda1b99" />
+
+Y modificamos estas lineas para que corresponda con nuestro trabajo:  
+<img width="461" height="37" alt="image" src="https://github.com/user-attachments/assets/1890d926-7dea-4c79-95a6-41e01b2428e3" />
+<img width="273" height="28" alt="image" src="https://github.com/user-attachments/assets/bf92e4cd-952a-4094-9b60-43ba120fdf3b" />
+
+Ahora vamos a habilitar CGI para poder ver las gráficas. Reiniciaremos apache tambien:  
+<img width="631" height="150" alt="image" src="https://github.com/user-attachments/assets/4a521c5a-6cc7-4738-9111-50fb0d91f2fd" />
+
+Como último paso, generamos las estadísticas iniciales con:  
+<img width="1132" height="298" alt="image" src="https://github.com/user-attachments/assets/086e6731-50b8-47a9-a724-7b2159ad22d8" />
+
+Y ahora comprobamos:  
+<img width="1152" height="457" alt="image" src="https://github.com/user-attachments/assets/554788fd-de66-4617-8cdf-368f0ae992b8" />
+
+## 7.- NGINX y PHPMyAdmin
+
+Para que no haya interferencias entre apache y nginx, nginx y phpmyadmin lo vamos a poner en el puerto 8080. Primero, lo instalamos. Como Apache usa PHP como módulo, Nginx necesita php-fpm, así que instalamos ambos:  
+<img width="620" height="20" alt="image" src="https://github.com/user-attachments/assets/8067eaca-fdda-45ec-b18e-a7b78c398b55" />
+
+Si nos da error (que es casi seguro) es porque nginex usa el purto 80 que ya esta ocupado por apache, asi que ahremos lo siguiente. Nos vamos a este archivo:  
+<img width="775" height="29" alt="image" src="https://github.com/user-attachments/assets/49af02c2-1c85-42c0-a9a1-64ca9d8bf564" />
+
+Y modificaremos las siguientes cosas:  
+<img width="395" height="84" alt="image" src="https://github.com/user-attachments/assets/806c824e-eae3-4b71-9ea0-bef0c692554d" />
+<img width="634" height="70" alt="image" src="https://github.com/user-attachments/assets/5d6be0d6-b331-4d7e-8dc1-2b2994c4cd66" />
+<img width="540" height="176" alt="image" src="https://github.com/user-attachments/assets/3b534cf8-9537-47ab-93b4-af6a48eacd37" />
+
+Y ahora reiniciamos el servicio y veremos que funciona:  
+<img width="1151" height="409" alt="image" src="https://github.com/user-attachments/assets/f4245048-9fbe-4221-ae78-f3964b1eb939" />
+
+Lo siguiente va a ser instalar PHPMyAdmin:  
+<img width="919" height="170" alt="image" src="https://github.com/user-attachments/assets/e485a0b4-2937-422b-9087-1951b70dfb55" />
+
+Nos llevara a la configuración de phpmyadmin. En la primera no marcamos nada y aceptamos:  
+<img width="1065" height="291" alt="image" src="https://github.com/user-attachments/assets/038fea0f-6d0d-4f01-8ae1-43b0eb04386e" />
+<img width="1139" height="373" alt="image" src="https://github.com/user-attachments/assets/209269be-521e-4fe1-ab4a-4a99ca3480bb" />
+<img width="1129" height="260" alt="image" src="https://github.com/user-attachments/assets/cdfdd1c4-9a2c-4284-828a-0b849f1136c4" />
+
+Ahora ponemos este comando para vincular nginx:  
+<img width="724" height="22" alt="image" src="https://github.com/user-attachments/assets/2d6fd408-0962-4cca-a3c2-f7e5866468ed" />
+
+Y ahora nos vamos a internet y ponemos la url http://servidor2.centro.intranet:8080/phpmyadmin y veremos que funciona:  
+<img width="778" height="520" alt="image" src="https://github.com/user-attachments/assets/cee3c4e2-69ac-4bc7-b655-3e058bdda022" />
+
+
+
+
+
 
 
 
