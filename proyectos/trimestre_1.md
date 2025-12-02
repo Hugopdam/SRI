@@ -75,5 +75,15 @@ Ahora lo probamos:
 
 ## 5.- Proteger Python con Autenticación
 
+Primnero creamos el usuario y el archivo de contraseñas:  
+<img width="794" height="94" alt="image" src="https://github.com/user-attachments/assets/3f96a8aa-a6a0-41f6-a798-b010120db412" />
+
+Y ahora vamos a modificar el archivo de configuración del VirtualHost, dentro de directory vamos a añadir el método de autenticación y el require se cambiará por valid-user:  
+<img width="555" height="287" alt="image" src="https://github.com/user-attachments/assets/1468d7f7-0818-43da-9ec0-1178deb3d80b" />
+
+Y si ahora recargamos apache y probamos a entrar a departamentos otra vezs nos pedirá el login:  
+<img width="711" height="344" alt="image" src="https://github.com/user-attachments/assets/dca46439-5393-4f9f-b9d7-f38e0abc0c7f" />
+
+
 
 
