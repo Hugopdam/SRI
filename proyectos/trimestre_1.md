@@ -59,9 +59,21 @@ Y con esto ya estaria:
 Primero lo instalamos con este comando:  
 <img width="933" height="118" alt="image" src="https://github.com/user-attachments/assets/30f6361e-9c68-40eb-9e91-32947e3fef3b" />
 
+Ahora creamos la carpeta donde ira el script (el script usado es uno creado en el momento muy sencillo simplemente para probar el funcionamiento):  
 
+<img width="754" height="46" alt="image" src="https://github.com/user-attachments/assets/b17d4c6f-b750-4064-86ce-38c3322d3b93" />
 
+Ahora creamos el virtualhost para python:  
+<img width="848" height="261" alt="image" src="https://github.com/user-attachments/assets/01250ca0-3725-4f65-a76b-2b3e0021269a" />
 
+Ahora lo habilitamos:  
+<img width="641" height="107" alt="image" src="https://github.com/user-attachments/assets/5bf69006-f267-4258-9fe1-2ffbec569f7f" />
+
+Ahora lo probamos:
+
+<img width="617" height="101" alt="image" src="https://github.com/user-attachments/assets/e35d18cc-10fd-41c5-ba43-0d1c5690dd11" />
+
+## 5.- Proteger Python con Autenticación
 
 
 
