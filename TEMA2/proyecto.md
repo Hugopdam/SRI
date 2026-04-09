@@ -60,5 +60,39 @@ Y ya vemos que se crea correctamente y todos los paquetes se han instalado:
 Ahora unas comprobaciones de ultima hora:
 <img width="712" height="277" alt="image" src="https://github.com/user-attachments/assets/465cb87d-3791-4cad-b4ad-b5709ae9f04a" />
 <img width="706" height="195" alt="image" src="https://github.com/user-attachments/assets/f8f2d170-8563-48af-86d5-f4796c99905f" />
+<img width="704" height="217" alt="image" src="https://github.com/user-attachments/assets/10758b42-307e-4d9d-a312-38bd8fbff54b" />
+<img width="980" height="367" alt="image" src="https://github.com/user-attachments/assets/9d7ff81a-3089-489e-9abe-fc18f0ccba62" />
+
+# 3 Configuración
+Ahora vamos a dejar todo preparado para el script, y solo tengamos que añadir los usuarios y no configurar nada desde cero. Haremos lo siguiente:
+
+### 3.1 asegurar FTP por certificados:
+Vamos a hacer que el acceso FTP configure adecuadamente TLS: esto convierte el FTP normal, que es inseguro, en FTPS, cifrando las contraseñas y archivos. Para esto vamos a crear un certificado autofirmado válido por un año, con este comando en el cual ya le pasamos los datos con -subj: sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt -subj "/C=ES/ST=Andalusia/L=Huelva/O=Hosting/CN=192.168.197.152"
+
+<img width="1055" height="280" alt="image" src="https://github.com/user-attachments/assets/355e8027-044c-443a-92fb-109f8ef30997" />
+
+Ahora nos vamos al archivo de congifuración del vsftpd y descomentamos la linea write_enable para permitir que los usuarios puedan subir archivos mediante FTP:
+
+<img width="754" height="455" alt="image" src="https://github.com/user-attachments/assets/49308ce1-c9fd-41b5-bc9f-e9d9c056567c" />
+
+Y cambiamos las lineas finales para que apunte a nuestro certificado TLS:
+
+<img width="525" height="184" alt="image" src="https://github.com/user-attachments/assets/934086c5-7e1d-40ad-8a94-f90cffa3573c" />
+
+Ahora guardamos los cambios y reiniciamos el servicio. Para comprobar que el certificado esté aplicado correctamente, usamos este comando: openssl s_client -connect 127.0.0.1:21 -starttls ftp (este comando devuelve muchas lineas, por lo que no sale el inicio pero ha funcionado correctamente)
+
+<img width="799" height="534" alt="image" src="https://github.com/user-attachments/assets/0d42b03f-6d95-4270-ac95-2e00738533bd" />
+
+### 3.2 Preparar las zonas DNS
+Nuestro script creará los subdominios, pero para que pueda hacerlo, primero debe existir el dominio principal. Vamos a llamarlo midominio.local y a declarar las zonas en bind poniéndolas en el archivo de configuración:
+
+<img width="317" height="132" alt="image" src="https://github.com/user-attachments/assets/2c21f8e2-73f4-485e-80ce-103156de3962" />
+
+
+
+
+
+
+
 
 
