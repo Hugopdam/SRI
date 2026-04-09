@@ -112,3 +112,17 @@ Y combrobamos con dig:
 
 <img width="426" height="31" alt="image" src="https://github.com/user-attachments/assets/d47289f2-fef6-49aa-9a5c-fea225a88b84" />
 
+### 3.3 Habilitar python
+
+Como ya instalamos el paquete libapache2-mod-wsgi-py3 en la fase anterior, solo tenemos que decirle a Apache que lo active. Usamos estos dos comandos:
+
+<img width="370" height="85" alt="image" src="https://github.com/user-attachments/assets/cd040d8a-8109-460c-8884-f707a41cca01" />
+
+Y comprobamos:
+
+<img width="1075" height="134" alt="image" src="https://github.com/user-attachments/assets/cf7cc65d-1799-4a34-a3dc-852acfafa1da" />
+
+
+
+
+
