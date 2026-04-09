@@ -88,11 +88,27 @@ Nuestro script creará los subdominios, pero para que pueda hacerlo, primero deb
 
 <img width="317" height="132" alt="image" src="https://github.com/user-attachments/assets/2c21f8e2-73f4-485e-80ce-103156de3962" />
 
+Ahora creamos la zona directoa:
 
+<img width="659" height="168" alt="image" src="https://github.com/user-attachments/assets/575a6310-6673-4a9e-9c93-82201b10d5fd" />
 
+Y comprobamos:
 
+<img width="588" height="65" alt="image" src="https://github.com/user-attachments/assets/cbc7efae-338a-4645-a872-38779a8e53de" />
 
+Ahora creamos la zona inversa:
 
+<img width="462" height="154" alt="image" src="https://github.com/user-attachments/assets/189ee9c8-7191-4025-9643-3190930c6857" />
 
+Y comprobamos tambien:
 
+<img width="590" height="55" alt="image" src="https://github.com/user-attachments/assets/b33b6099-b516-46e8-9588-b90306143b8f" />
+
+Y reiniciamos el servicio:
+
+<img width="593" height="179" alt="image" src="https://github.com/user-attachments/assets/aff38cf0-68f0-4d35-93da-5ad01d735d2b" />
+
+Y combrobamos con dig:
+
+<img width="426" height="31" alt="image" src="https://github.com/user-attachments/assets/d47289f2-fef6-49aa-9a5c-fea225a88b84" />
 
