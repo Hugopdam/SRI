@@ -257,13 +257,51 @@ Y ahora probamos en el explorador:
 
 <img width="514" height="145" alt="image" src="https://github.com/user-attachments/assets/a798f40a-2781-4218-aa90-d84047f62485" />
 
+# 5. Docker
 
+Nuestro servidor actual ya tiene ocupados los puertos 80 (Apache) y 53 (Bind9). Si intentamos levantar contenedores Docker en esos mismos puertos, se pisarán. Para no romper lo que ya hemos hecho, configuraremos los contenedores para que escuchen en otros puertos (ej. 8080 para la web y 5353 para el DNS) usando una red interna de Docker. Vamos a instalar Docker y el plugin de Compose:
 
+<img width="527" height="83" alt="image" src="https://github.com/user-attachments/assets/2b635f65-8858-4515-a447-c40930903723" />
 
+Añadimos el usuario al grupo de Docker para no tener que escribir sudo todo el tiempo con los contenedores:
 
+<img width="416" height="29" alt="image" src="https://github.com/user-attachments/assets/72fb4681-3361-4414-b331-ee0a7e7f4f02" />
 
+Vamos a crear una carpeta para este proyecto y subcarpetas para guardar los datos de los contenedores de forma persistente. Vamos a la carpeta personal:
 
+<img width="345" height="75" alt="image" src="https://github.com/user-attachments/assets/c3c34c43-174c-40d1-8f8d-f41633f07876" />
 
+Ahora viene lo complicado. Vamos a escribir un archivo compose que es el que nos va a crear la estructura del contenedor y desde el que quedará configurada la red, los volúmenes y los dos contenedores (un DNS basado en Ubuntu/Bind9 y un servidor Web basado en Nginx).
+
+<img width="682" height="472" alt="image" src="https://github.com/user-attachments/assets/7a49213e-bb80-4355-bb70-6c813a655c5b" />
+
+Como toda la práctica va de automatización mediante scripts, vamos a crear un pequeño script en Bash que levante el entorno y te muestre su estado. Lo creamos con nano desplegar_docker.sh y su contenido será este código, que despliega el contenedor y te muestra el estado en una tabla cogiendo los parámetros a mostrar:
+
+<img width="608" height="173" alt="image" src="https://github.com/user-attachments/assets/b7b30042-d8b2-44e4-b9cb-718755a4606c" />
+
+Le damos permisos de ejecución y lo probamos:
+
+<img width="1145" height="427" alt="image" src="https://github.com/user-attachments/assets/e8f05b45-fb44-4462-a185-2ff881b6d7ca" />
+
+La comprobación con curl:
+
+<img width="605" height="45" alt="image" src="https://github.com/user-attachments/assets/dd056ea2-2dd1-4b0d-aeee-71a58392a2d0" />
+
+Y si ahora vamos al mismo cliente de antes:
+
+<img width="848" height="211" alt="image" src="https://github.com/user-attachments/assets/b41befb8-673e-4769-8b85-696505de4951" />
+
+# 6. Resultados
+
+Resumen de la infraestructura:
+
+Servidor Base: Ubuntu Server configurado en red manual con todo lo necesario.
+
+Seguridad: Un servidor FTP asegurado con certificados TLS (FTPS).
+
+Automatización Completa: Un script Bash que crea usuarios de sistema, les asigna espacio web, crea una base de datos en MariaDB con permisos totales, configura su VirtualHost en Apache (soportando PHP y Python) y registra su subdominio local en Bind9.
+
+Contenedores: Un entorno Docker aislado ejecutando Nginx y un DNS secundario, orquestado mediante scripts y docker-compose.
 
 
 
