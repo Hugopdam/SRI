@@ -122,6 +122,147 @@ Y comprobamos:
 
 <img width="1075" height="134" alt="image" src="https://github.com/user-attachments/assets/cf7cc65d-1799-4a34-a3dc-852acfafa1da" />
 
+# 4. El Script de automatización
+
+~~~
+#!/bin/bash
+
+# validación inicial
+if [ "$#" -ne 2 ]; then
+    echo "Introduzca los parámetros cliente y contraseña en ese orden"
+    echo "Ejemplo: sudo ./crear_cliente.sh usu1 password"
+    exit 1
+fi
+
+USUARIO=$1
+PASS=$2
+DOMINIO="${USUARIO}.midominio.local"
+IP_SERVIDOR="192.168.197.152"
+OCTETO_FINAL="152"
+
+# Creacion del usuario del sistema
+echo "[1/5] Creando usuario y directorio..."
+useradd -m -s /bin/bash $USUARIO
+echo "$USUARIO:$PASS" | chpasswd
+
+DIR_WEB="/home/$USUARIO/public_html"
+mkdir -p $DIR_WEB
+
+# Pagina web dinamica por defecto
+cat <<EOF > $DIR_WEB/index.php
+<!DOCTYPE html>
+<html>
+<head><title>Bienvenido $USUARIO</title></head>
+<body>
+    <h1>Hosting configurado correctamente para $DOMINIO</h1>
+    <?php echo "<p>Soporte PHP activado</p>"; ?>
+</body>
+</html>
+EOF
+
+chown -R $USUARIO:www-data /home/$USUARIO
+chmod -R 755 /home/$USUARIO
+
+# Base de datos
+echo "[2/5] Creando base de datos y usuario SQL..."
+DB_NAME="${USUARIO}_db"
+mysql -u root -e "CREATE DATABASE ${DB_NAME};"
+mysql -u root -e "CREATE USER '${USUARIO}'@'localhost' IDENTIFIED BY '${PASS}';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${USUARIO}'@'localhost';"
+mysql -u root -e "FLUSH PRIVILEGES;"
+
+# Virtual host y apache
+echo "[3/5] Configurando Virtual host en apache..."
+VHOST_FILE="/etc/apache2/sites-available/${DOMINIO}.conf"
+
+cat <<EOF > $VHOST_FILE
+<VirtualHost *:80>
+    ServerName $DOMINIO
+    DocumentRoot $DIR_WEB
+
+    <Directory $DIR_WEB>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    WSGIScriptAlias /python $DIR_WEB/app.wsgi
+    <Directory $DIR_WEB>
+        <Files app.wsgi>
+            Require all granted
+        </Files>
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/${USUARIO}_error.log
+    CustomLog \${APACHE_LOG_DIR}/${USUARIO}_access.log combined
+</VirtualHost>
+EOF
+
+cat <<EOF > $DIR_WEB/app.wsgi
+def application(environ, start_response):
+    status = '200 OK'
+    output = b'La aplicacion python funciona \n'
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+    return [output]
+EOF
+
+chown $USUARIO:www-data $DIR_WEB/app.wsgi
+
+a2ensite ${DOMINIO}.conf
+systemctl reload apache2
+
+# DNS
+echo "[4/5] Configurando DNS en Bind9..."
+ZONA_DIRECTA="/etc/bind/db.midominio.local"
+ZONA_INVERSA="/etc/bind/db.197"
+
+echo "${USUARIO}    IN    A    ${IP_SERVIDOR}" >> $ZONA_DIRECTA
+echo "${OCTETO_FINAL}      IN    PTR  ${DOMINIO}." >> $ZONA_INVERSA
+systemctl restart bind9
+
+echo "[5/5] Completado!"
+echo "Resumen:"
+echo "Web (php) -> http://$DOMINIO"
+echo "Web (python) -> http://$DOMINIO/python"
+echo "Base de datos -> $DB_NAME (Usuario: $USUARIO)"
+echo "FTP/SSH/SFTP -> Usuario $USUARIO"
+~~~
+
+Le damos permisos de ejecución y lo probamos con un ejemplo:
+
+<img width="415" height="222" alt="image" src="https://github.com/user-attachments/assets/36545780-5e98-4b1d-a146-c09783a221f9" />
+
+# 4.1 Comprobaciones
+Primero probamos que el DNS resuelve el subdominio del cliente:
+
+<img width="466" height="34" alt="image" src="https://github.com/user-attachments/assets/c4f06c3c-bf89-47eb-849a-72d5c5d59618" />
+
+Ahora probamos la web/php con curl:
+
+<img width="563" height="145" alt="image" src="https://github.com/user-attachments/assets/b327ecd7-159f-4afb-9b6a-335b887157f0" />
+
+Y la aplicación de Python:
+
+<img width="610" height="41" alt="image" src="https://github.com/user-attachments/assets/e66eaefc-d969-45c2-915b-5ca86faecde0" />
+
+Y ahora si nos vamos a otra mauqina en la misma red (se la pedi prestada a jesus porque no tenia ninguna creada en el momento) veremos que nos encuentra el servidor:
+
+<img width="654" height="251" alt="image" src="https://github.com/user-attachments/assets/d8392d45-1cab-4a95-96f4-b361df078dea" />
+
+Y ahora probamos en el explorador:
+
+<img width="1051" height="244" alt="image" src="https://github.com/user-attachments/assets/7cf8f790-6110-4128-bcf0-9f9551102283" />
+
+<img width="514" height="145" alt="image" src="https://github.com/user-attachments/assets/a798f40a-2781-4218-aa90-d84047f62485" />
+
+
+
+
+
+
+
 
 
 
