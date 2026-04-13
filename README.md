@@ -27,3 +27,4 @@ Ejercicios |
 Trabajos trimestrales |
 ----------|
 [Primer trimestre](proyectos/trimestre_1.md)
+[Segundo trimestre](TEMA2/proyecto.md)
