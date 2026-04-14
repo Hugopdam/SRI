@@ -30,5 +30,19 @@ Y reiniciamos bind para aplicar los cambios con sudo systemctl restart bind9. En
 
 Ahora vamos a configurarlo además como un servidor forwarding. Para esto, en el mismo archivo que hemos modificado, simplemente descomentamos el bloque de forwarders y añadimos otras opciones. (Es la parte de arriba de la captura de options, solo que ahora lo descomentamos):
 
+<img width="286" height="282" alt="image" src="https://github.com/user-attachments/assets/b12500ee-182f-4489-bee2-3caabb09bc35" />
+
+## Comprobaciones
+
+Después de configurar el archivo /etc/resolve.conf de la siguiente manera:
+
+<img width="201" height="61" alt="image" src="https://github.com/user-attachments/assets/7da0b36d-2317-49bf-91e3-7f07c2068e92" />
+
+Y ya con eso empezamos a probar con el cliente:
+
+<img width="536" height="175" alt="image" src="https://github.com/user-attachments/assets/66af929f-83f0-41aa-a7a0-b4450e6ad5af" />
+
+<img width="486" height="615" alt="image" src="https://github.com/user-attachments/assets/4989c5d1-45a6-437b-9d8d-143970a08eba" />
+
 
 
