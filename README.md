@@ -28,7 +28,6 @@ Ejercicios |
 
 Ejercicios |
 ----------|
-
 [Ejercicio5](TEMA2/actividad5.md)
 
 Trabajos trimestrales |
