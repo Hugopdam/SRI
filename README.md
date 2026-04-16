@@ -24,6 +24,13 @@ Ejercicios |
 [Ejercicio7](TEMA_1/actividad7.md)
 [Ejercicio8](TEMA_1/actividad8.md)
 
+## Tema 2
+
+Ejercicios |
+----------|
+
+[Ejercicio5](TEMA2/actividad5.md)
+
 Trabajos trimestrales |
 ----------|
 [Primer trimestre](proyectos/trimestre_1.md)
