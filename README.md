@@ -29,6 +29,7 @@ Ejercicios |
 Ejercicios |
 ----------|
 [Ejercicio5](TEMA2/actividad5.md)
+[Ejercicio6](TEMA2/actividad6.md)
 
 ## Trabajos
 
