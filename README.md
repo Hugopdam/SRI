@@ -32,6 +32,17 @@ Ejercicios |
 [Ejercicio6](TEMA2/actividad6.md)
 [Ejercicio8](TEMA2/actividad8.md)
 
+## Tema 3
+
+Ejercicios |
+----------|
+[Ejercicio0](TEMA3/actividad0.md)
+[Ejercicio1](TEMA3/actividad1.md)
+[Ejercicio2](TEMA3/actividad2.md)
+[Ejercicio3](TEMA3/actividad3.md)
+[Ejercicio4](TEMA3/actividad4.md)
+
+
 ## Trabajos
 
 Trabajos trimestrales |
